@@ -1,7 +1,12 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 
+import 'core/utils/app_router.dart';
+
 void main() {
-  runApp(const MainApp());
+  runApp(
+    DevicePreview(builder: (context) => const MainApp()),
+  );
 }
 
 class MainApp extends StatelessWidget {
@@ -9,12 +14,10 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return MaterialApp.router(
+      routerConfig: AppRouter.router,
+      title: 'Read - The Holy Qur\'an',
+      debugShowCheckedModeBanner: false,
     );
   }
 }
