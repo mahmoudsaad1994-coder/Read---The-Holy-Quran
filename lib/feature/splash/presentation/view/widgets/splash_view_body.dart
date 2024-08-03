@@ -1,9 +1,10 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../../constans.dart';
 import '../../../../../core/utils/app_router.dart';
+import '../../../../../core/utils/assets.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -38,13 +39,13 @@ class _SplashViewBodyState extends State<SplashViewBody>
     return Scaffold(
       body: Container(
         alignment: Alignment.center,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
             colors: [
-              Color.fromARGB(255, 132, 192, 205),
-              Color.fromARGB(255, 30, 110, 107)
+              kDF98FA,
+              k9055FF,
             ],
           ),
         ),
@@ -56,10 +57,13 @@ class _SplashViewBodyState extends State<SplashViewBody>
                 CurveTween(curve: Curves.easeIn),
               ),
               child: Image.asset(
-                'assets/images/grad_logo.png',
+                AssetsData.splashLogo,
                 fit: BoxFit.fill,
                 height: size.height * .3,
-              ),
+              ).animate().shimmer(
+                    delay: const Duration(milliseconds: 2500),
+                    duration: const Duration(milliseconds: 1200),
+                  ),
             ),
             FadeTransition(
               opacity: animationController.drive(
@@ -71,7 +75,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
-                      'صدقة جارية عن والدي نسألكم الدعاء',
+                      'صدقة جارية عن والدي',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white54,
@@ -80,6 +84,14 @@ class _SplashViewBodyState extends State<SplashViewBody>
                     ),
                     Text(
                       'سعدالدين حامد عبدالعال الملا',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w900,
+                        color: Colors.white70,
+                        fontSize: size.width * .043,
+                      ),
+                    ),
+                    Text(
+                      'نسألكم الدعاء',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white54,
@@ -110,7 +122,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   void navigateToHome() {
     Future.delayed(
-      const Duration(milliseconds: 4000),
+      const Duration(milliseconds: 6000),
       () {
         GoRouter.of(context).push(AppRouter.kHomeView);
       },

@@ -1,0 +1,21 @@
+class JuzModel {
+  int? number;
+  final List<Ayah?>? ayahs;
+
+
+  AyahModel({
+    required this.number,
+    required this.ayahs,
+  });
+
+  factory AyahModel.fromJson(Map<String, dynamic> json) => AyahModel(
+        number: json['number'] as int?,
+        text: List<Ayah>.from(map['ayahs']?.map((x) => Ayah.fromMap(x))),
+      );
+
+  Map<String, dynamic> toJson() => {
+        'number': number,
+        'ayahs': ayahs?.map((x) => x?.toMap()).toList(),
+
+      };
+}

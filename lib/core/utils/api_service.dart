@@ -1,14 +1,14 @@
 import 'package:dio/dio.dart';
 
 class ApiService {
-  final Dio _dio;
+  static Dio dio = Dio();
 
-  final baseUrl = "https://www.googleapis.com/books/v1/";
+  static Future<Map<String, dynamic>> getQuranData() async {
+    var response = await dio.get(
+      'http://api.alquran.cloud/v1/quran/quran-uthmani',
+    );
+    final Map<String, dynamic> data = response.data['data'];
 
-  ApiService(this._dio);
-
-  Future<Map<String, dynamic>> get({required String endPoint}) async {
-    var response = await _dio.get('$baseUrl$endPoint');
-    return response.data;
+    return data;
   }
 }
