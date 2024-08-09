@@ -1,12 +1,14 @@
 import 'package:go_router/go_router.dart';
 
-import '../../feature/home/presentation/views/home_view.dart';
-import '../../feature/home/presentation/views/surah_info_view.dart';
+import '../../feature/surahs/presentation/views/surah_info_view.dart';
+import '../../feature/juz/presentation/views/juz_info_view.dart';
+import '../../feature/layout_view.dart/presentation/views/layout_view.dart';
 import '../../feature/splash/presentation/view/splash_view.dart';
 
 abstract class AppRouter {
-  static const kHomeView = '/homeView';
+  static const kLayoutView = '/LayoutView';
   static const kSurahInfoView = '/surahView';
+  static const kjuzInfoView = '/juzView';
 
   static final router = GoRouter(
     routes: [
@@ -15,13 +17,19 @@ abstract class AppRouter {
         builder: (context, state) => const SplashView(),
       ),
       GoRoute(
-        path: kHomeView,
-        builder: (context, state) => const HomeView(),
+        path: kLayoutView,
+        builder: (context, state) => const LayoutView(),
       ),
       GoRoute(
         path: kSurahInfoView,
         builder: (context, state) => SurahInfoView(
-          surahName: state.extra as String,
+          surahNumber: state.extra as int,
+        ),
+      ),
+      GoRoute(
+        path: kjuzInfoView,
+        builder: (context, state) => JuzInfoView(
+          juzNumber: state.extra as int,
         ),
       ),
     ],
