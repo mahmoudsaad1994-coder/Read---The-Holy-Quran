@@ -6,6 +6,7 @@ import '../../../../../constans.dart';
 import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/functions/revelation_type.dart';
+import '../../../../layout_view.dart/presentation/views/manager/app_cubit.dart';
 
 class ListTileWidget extends StatelessWidget {
   const ListTileWidget({super.key, required this.surahNumber});
@@ -24,7 +25,7 @@ class ListTileWidget extends StatelessWidget {
           title: Text(
             "سورة ${quran.getSurahNameArabic(surahNumber)}",
             style: TextStyle(
-              color: k863ED5,
+              color: AppCubit.get(context).isdark ? Colors.white : k863ED5,
               fontWeight: FontWeight.bold,
               fontSize: constraints.maxWidth * .045,
             ),

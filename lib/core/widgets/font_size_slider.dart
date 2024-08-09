@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../constans.dart';
 import '../../feature/layout_view.dart/presentation/views/manager/app_cubit.dart';
 import '../../feature/layout_view.dart/presentation/views/manager/app_states.dart';
 import '../utils/styles.dart';

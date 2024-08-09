@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quran/quran.dart' as quran;
 
@@ -37,6 +35,16 @@ class AppCubit extends Cubit<AppStates> {
       },
     );
     emit(FetchDataSuccessAppStates());
+  }
+
+  int getJuzAyaCount(int juzNumber) {
+    int ayahCont = 0;
+    quran.getSurahAndVersesFromJuz(juzNumber).values.forEach(
+      (element) {
+        ayahCont = ayahCont + (element[1] - element[0] + 1);
+      },
+    );
+    return ayahCont;
   }
 
   //font size slider

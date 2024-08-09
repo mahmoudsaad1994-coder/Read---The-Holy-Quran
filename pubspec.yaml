@@ -7,8 +7,6 @@ environment:
   sdk: '>=3.4.3 <4.0.0'
 
 dependencies:
-  device_preview: ^1.2.0
-  double_back_to_close_app: ^2.1.0
   flutter:
     sdk: flutter
   flutter_animate: ^4.5.0

@@ -27,7 +27,7 @@ class ListTileWidget extends StatelessWidget {
           title: Text(
             "الجزء ${numbArb[juzNumber - 1]}",
             style: TextStyle(
-              color: k863ED5,
+              color: AppCubit.get(context).isdark ? Colors.white : k863ED5,
               fontWeight: FontWeight.bold,
               fontSize: constraints.maxWidth * .045,
             ),
@@ -50,6 +50,14 @@ class ListTileWidget extends StatelessWidget {
             ],
           ),
           contentPadding: EdgeInsets.zero,
+          subtitle: Text(
+            'عدد الآيات : ${cubit.getJuzAyaCount(juzNumber)}',
+            style: TextStyle(
+              color: k8789A3,
+              fontSize: constraints.maxWidth * .04,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         );
       },
     );

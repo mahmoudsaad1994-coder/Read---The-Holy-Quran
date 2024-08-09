@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../../constans.dart';
 import '../../../../../core/utils/app_router.dart';
@@ -84,7 +85,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
                     ),
                     Text(
                       'سعدالدين حامد عبدالعال الملا',
-                      style: TextStyle(
+                      style: GoogleFonts.amiri().copyWith(
                         fontWeight: FontWeight.w900,
                         color: Colors.white70,
                         fontSize: size.width * .043,

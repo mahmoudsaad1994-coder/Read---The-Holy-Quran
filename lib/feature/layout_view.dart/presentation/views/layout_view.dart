@@ -1,4 +1,3 @@
-import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/custom_appbar.dart';
@@ -10,27 +9,20 @@ class LayoutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PopScope(
-      child: DefaultTabController(
-        length: 2,
-        child: Scaffold(
-          resizeToAvoidBottomInset: false,
-          appBar: appBar(
-            context: context,
-            isHome: true,
-            title: 'الُِقٌرٍآن الُِڪرٍيم',
-          ),
-          body: const DoubleBackToCloseApp(
-            snackBar: SnackBar(
-              content: Text('اضغط مره اخري للخروج من التطبيق'),
-            ),
-            child: TabBarView(
-              children: [
-                SurahView(),
-                JuzView(),
-              ],
-            ),
-          ),
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        appBar: appBar(
+          context: context,
+          isHome: true,
+          title: 'الُِقٌرٍآن الُِڪرٍيم',
+        ),
+        body: const TabBarView(
+          children: [
+            SurahView(),
+            JuzView(),
+          ],
         ),
       ),
     );

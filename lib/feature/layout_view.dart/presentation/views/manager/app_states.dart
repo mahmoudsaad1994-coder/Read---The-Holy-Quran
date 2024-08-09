@@ -4,6 +4,8 @@ class AppStatesInitial extends AppStates {}
 
 class ChangeThemeModeAppStates extends AppStates {}
 
+class ChangeinitialIndexAppStates extends AppStates {}
+
 class FetchDataLoadingAppStates extends AppStates {}
 
 class FetchDataSuccessAppStates extends AppStates {}
